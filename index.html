@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="script.js">
+    <title>Livraria</title>
+    <script>
+        function addToCart(productName, price) {
+            // Verifica se há itens no localStorage
+            var cartItems = localStorage.getItem('cartItems');
+            cartItems = cartItems ? JSON.parse(cartItems) : [];
+        
+            // Adiciona o novo item ao carrinho
+            var newItem = {
+                productName: productName,
+                price: price
+            };
+        
+            cartItems.push(newItem);
+        
+            // Atualiza o localStorage com os itens atualizados do carrinho
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        
+            // Atualiza a exibição do carrinho
+            updateCartDisplay();
+        }
+        
+        function updateCartDisplay() {
+            var cartTable = document.getElementById('cartTable');
+            var cartItems = localStorage.getItem('cartItems');
+        
+            // Limpa a tabela do carrinho
+            cartTable.innerHTML = '<tr><th>Produto</th><th>Preço</th></tr>';
+        
+            if (cartItems) {
+                cartItems = JSON.parse(cartItems);
+        
+                // Adiciona cada item do carrinho à tabela
+                cartItems.forEach(function (item) {
+                    var row = cartTable.insertRow(-1);
+                    var productNameCell = row.insertCell(0);
+                    var priceCell = row.insertCell(1);
+        
+                    productNameCell.textContent = item.productName;
+                    priceCell.textContent = 'R$ ' + item.price.toFixed(2);
+                });
+            }
+        }
+        
+        // Atualiza a exibição do carrinho quando a página é carregada
+        window.onload = function () {
+            updateCartDisplay();
+        };
+
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Livraria Fantástica</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Livros</a></li>
+                <li><a href="#">Autores</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="compra.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cards">
+            <div class="card">
+                <img src="img/OIP (1).jpg" alt="Livro 1">
+                <h2>A Menina Que Roubava Livros</h2>
+                <p>Autor: Markus Zusak</p>
+                <button onclick="addToCart('Produto 2', 30.00)">Adicionar ao Carrinho</button>
+                
+            </div>
+
+            <div class="card">
+                <img src="img/R-_1_.jpg" alt="Livro 2">
+                <h2>Harry Potter e a Câmara Secreta</h2>
+                <p>Autor: J.K. Rowling</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card">
+                <img src="img/R (1).jpg" alt="Livro 3">
+                <h2>Coraline</h2>
+                <p>Autor: Neil Gaiman</p>
+                <button>Comprar</button>
+            </div>
+        </section>
+    </main>
+    <main>
+        <section class="cards">
+            <div class="card">
+                <img src="img/18102117480052.jpg" alt="Livro 4">
+                <h2>As Crônicas Das Sombras</h2>
+                <p>Autor: Frances Hardinge</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card">
+                <img src="img/cde7c9d7abc17d2bf88ef6aaab4a181d.jpg" alt="Livro 5">
+                <h2>Sword Of Fire</h2>
+                <p>Autor: Katharine Kerr</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card">
+                <img src="img/mockup-3d1.png" alt="Livro 6">
+                <h2>Serafina E A Capa Preta</h2>
+                <p>Autor: Robert Beatty</p>
+                <button>Comprar</button>
+            </div>
+        </section>
+        <h2>Carrinho de Compras</h2>
+
+    
+
+   
+<table id="cartTable">
+    <tr>
+        <th>Produto</th>          
+        <th>Preço</th> 
+    </tr> 
+</table>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Livraria Fantástica | Criado por Gabriel Coelho</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Livros</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script>
+            function validarEmail() {
+                var email = document.getElementById("idEmail").value
+                if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                    alert("Email inválido")
+                    return false
+                }else{
+                    return true
+                }
+            }
+            $(document).ready(function () {
+                $('#cpf').inputmask('999.999.999-99');
+                
+                $('#cep').inputmask('99999-999');
+                
+                $('#telefone').inputmask('(99) 9999-9999');
+            });
+
+            localStorage.setItem("nome_do_campo","valor");
+
+            function AddCarrinho(produto, qtd, valor, posicao){ 
+                localStorage.setItem("produto" + posicao, produto);
+                localStorage.setItem("qtd" + posicao, qtd);
+                valor = valor * qtd;
+                localStorage.setItem("valor" + posicao, valor);
+                alert("Produto adicionado ao carrinho!");
+            }
+            var total = 0; // variável que retorna o total dos produtos que estão na LocalStorage.
+            var i = 0;     // variável que irá percorrer as posições
+            var valor = 0; // variável que irá receber o preço do produto convertido em Float.
+            
+            for(i=1; i<=99; i++) // verifica até 99 produtos registrados na localStorage
+            {
+                var prod = localStorage.getItem("produto" + i + ""); // verifica se há recheio nesta posição. 
+                if(prod != null) 
+                {	
+                    // exibe os dados da lista dentro da div itens
+                    document.getElementById("itens").innerHTML += localStorage.getItem("qtd" + i) + " x ";
+                    document.getElementById("itens").innerHTML += localStorage.getItem("produto" + i);
+                    document.getElementById("itens").innerHTML += " ";
+                    document.getElementById("itens").innerHTML += "R$: " + localStorage.getItem("valor" + i) + "<hr>";
+                    
+                    // calcula o total dos recheios
+                    valor = parseFloat(localStorage.getItem("valor" + i)); // valor convertido com o parseFloat()
+                    total = (total + valor); // arredonda para 2 casas decimais com o .toFixed(2)
+                }
+                } 
+                // exibe o total dos recheios
+                document.getElementById("total").innerHTML = total.toFixed(2); 
+
+</script>
+</head>
+<body>
+    <header>
+        <h1>Livraria Fantástica</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#">Livros</a></li>
+                <li><a href="#">Autores</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container">
+            <form>
+                <fieldset>
+                    <legend>Compra</legend>
+                    
+                    <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required maxlength="50" value="Wanderson">
+                    <br>
+
+                    <div class="input-container">
+                    <label id="cpf">CPF</label>
+                        <input type="text" name="cpf" placeholder="Seu CPF" required pattern="\d{3}.\d{3}.\d{3}-\d{2}">
+                    </div>
+
+                    <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required value="wanderson.rigo@ifc.edu.br">
+                    <br>
+
+                    <label for="telefone">Telefone:</label>
+                        <input placeholder="(99) 9999-9999" type="tel" id="telefone" name="telefone" required>
+                    <br>
+
+                    <label for="cep">CEP (formato: 12345-678):</label>
+                        <input type="text" id="cep" name="cep" pattern="[0-9]{5}-[0-9]{3}" required>
+                    <br>
+                    <br>
+                    <div class="actions">
+                        <button type="submit">Cadastrar</button>
+                        <button type="reset">Limpar</button>
+                    </div>
+                    <br>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Livraria Fantástica | Criado por Gabriel Coelho</p>
+    </footer>
+</body>
+</html>
