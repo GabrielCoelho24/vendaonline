@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Livros</title>
     <link rel="stylesheet" href="estilos.css">
+    <script src="carrinho.html"></script>
     <script>
             function validarEmail() {
                 var email = document.getElementById("idEmail").value
@@ -73,7 +74,7 @@
 
     <main>
         <section class="container">
-            <form>
+            <form method="post" action="https://app.headlessforms.cloud/api/v1/form-submission/WF0tuafB2d" action="http://jkorpela.fi/cgi-bin/echo.cgi">
                 <fieldset>
                     <legend>Compra</legend>
                     
@@ -87,7 +88,7 @@
                     </div>
 
                     <label for="email">E-mail:</label>
-                        <input type="email" id="email" name="email" required value="wanderson.rigo@ifc.edu.br">
+                        <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required autocomplete="email">
                     <br>
 
                     <label for="telefone">Telefone:</label>
@@ -99,7 +100,7 @@
                     <br>
                     <br>
                     <div class="actions">
-                        <button type="submit">Cadastrar</button>
+                        <button type="submit" onclick="">Cadastrar</button>
                         <button type="reset">Limpar</button>
                     </div>
                     <br>
