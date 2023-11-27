@@ -39,6 +39,41 @@ function updateCartDisplay() {
         });
     }
 }
+function clearCartDisplay() {
+    var cartTable = document.getElementById('cartTable');
+
+    
+
+  
+    // Remove todas as linhas da tabela do carrinho
+        
+       
+    while (cartTable.rows.length > 0) {
+            cartTable.
+            cartTa
+    
+         
+    deleteRow(0);
+        }
+    
+    
+       
+    // Adiciona uma nova linha com os cabeçalhos
+        
+        
+    var headerRow = cartTable.insertRow(0);
+        var productNameHeader = headerRow.insertCell(0);
+        var priceHeader = headerRow.insertCell(1);
+    
+    
+    
+     
+    textContent = 'Produto';
+        priceHeader.
+        pr
+    textContent = 'Preço';
+    }
+
 
 // Atualiza a exibição do carrinho quando a página é carregada
 window.onload = function () {
