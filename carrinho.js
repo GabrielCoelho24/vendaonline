@@ -85,40 +85,10 @@ if (document.readyState == 'loading') {
     newCartProduct.getElementsByClassName("product-qtd-input")[0].addEventListener("change", checkIfInputIsNull)
   }
   
-  function makePurchase() {
-    if (totalAmount === "0,00") {
-      alert("Seu carrinho está vazio!")
-    } else {   
-      alert(
-        `
-          Obrigado pela sua compra!
-          Valor do pedido: R$${totalAmount}\n
-          Volte sempre :)
-        `
-      )
   
-      document.querySelector(".cart-table tbody").innerHTML = ""
-      updateTotal()
-    }
-  }
   
   // Atualizar o valor total do carrinho
-  function updateTotal() {
-    const cartProducts = document.getElementsByClassName("cart-product")
-    totalAmount = 0
   
-    for (var i = 0; i < cartProducts.length; i++) {
-      const productPrice = cartProducts[i].getElementsByClassName("cart-product-price")[0].innerText.replace("R$", "").replace(",", ".")
-      const productQuantity = cartProducts[i].getElementsByClassName("product-qtd-input")[0].value
-  
-      totalAmount += productPrice * productQuantity
-    }
-    
-    totalAmount = totalAmount.toFixed(2)
-    totalAmount = totalAmount.replace(".", ",")
-    document.querySelector(".cart-total-container span").innerText = "R$" + totalAmount
-  }
-
   function validarFormulario(event) {
     event.preventDefault(); // Impedir a ação padrão do formulário
 
@@ -155,7 +125,7 @@ if (document.readyState == 'loading') {
     }
 
     var cepPattern = /[0-9]{5}-[0-9]{3}/;
-    if (!telefone.match(cepPattern)){
+    if (!cep.match(cepPattern)){
         alert("o Cep deve estar no formato XXXXX-XXX")
         return false;
     }
@@ -207,3 +177,4 @@ localStorage.setItem("total_inscritos", totalInscritos);
 var numeroTotalInscritos = localStorage.getItem("total_inscritos");
 
 console.log("Número total de inscritos: " + numeroTotalInscritos);
+

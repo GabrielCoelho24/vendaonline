@@ -194,6 +194,8 @@ input[type="number"] {
   .cart-table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #eee;
+    border-radius: 10px;
   }
   
   .table-head-item {
@@ -201,15 +203,20 @@ input[type="number"] {
     border-bottom: 1px solid var(--gray);
     padding-bottom: 6px;
     text-transform: uppercase;
+    padding-left: 15px;
+    font-size: 20px;
   }
   
   .second-col,
   .third-col {
     width: 26%;
   }
+  .third-col{
+    text-align: center;
+  }
   
   .cart-product td {
-    padding: 8px 0;
+    padding: 8px 10px;
   }
   
   .product-identification {
@@ -222,7 +229,7 @@ input[type="number"] {
   }
   
   .cart-product-title {
-    margin-left: 16px;
+    margin-left: 26px;
     font-size: 18px;
   }
   
@@ -352,4 +359,19 @@ input[type="number"] {
     margin-bottom: 16px;
   }
 }
-  
+
+#back{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#alguma{
+  text-align: center;
+  font-size: 50px;
+}
+
+#button{
+  padding:15px;
+  float: right;
+  text-align: center;
+}
