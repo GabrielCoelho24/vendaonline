@@ -55,7 +55,7 @@
         </section>
     </main>
     <main>
-        
+          <section class="cards">
             <div class="card">
                 <img src="img/18102117480052.jpg" alt="Livro 4" class="product-image">
                 <br>
@@ -64,7 +64,8 @@
                 <span class="product-price">R$89,99</span>
                 <button class="button-hover-background">Comprar</button>
             </div>
-
+          </section>
+          <section class="cards">
             <div class="card">
                 <img src="img/cde7c9d7abc17d2bf88ef6aaab4a181d.jpg" alt="Livro 5" class="product-image">
                 <br>
@@ -73,7 +74,8 @@
                 <span class="product-price">R$29,99</span>
                 <button class="button-hover-background" >Comprar</button>
             </div>
-
+          </section>
+          <section class="cards">
             <div class="card">
                 <img src="img/mockup-3d1.png" alt="Livro 6" class="product-image">
                 <br>
@@ -82,8 +84,8 @@
                 <span class="product-price">R$49,99</span>
                 <button class="button-hover-background">Comprar</button>
             </div>
-       
-        <h1 id="alguma">Carrinho</h1>
+         </section>
+        <h1 class="alguma">Carrinho</h1>
       <section id="back">
         <table class="cart-table">
             <thead>
@@ -95,84 +97,7 @@
             </thead>
   
             <tbody>
-              <tr class="cart-product">
-                <td class="product-identification">
-                    <img src="img/OIP (1).jpg" alt="Livro 1" class="product-image" width="100">
-                <strong class="product-title">A Menina que Roubava Livros</strong>
-                </td>
-                <td>
-                  <span class="cart-product-price">R$79,99</span>
-                </td>
-                <td>
-                  <input type="number" value="0" min="0" class="product-qtd-input">
-                  <button type="button" class="remove-product-button">Remover</button>
-                </td>
-              </tr>
-              <tr class="cart-product">
-                <td class="product-identification">
-                    <img src="img/R-_1_.jpg" alt="Livro 2" class="product-image" width="100">
-                <strong class="product-title">Harry Potter e a Câmara Secreta</strong>
-                </td>
-                <td>
-                  <span class="cart-product-price">R$99,99</span>
-                </td>
-                <td>
-                  <input type="number" value="0" min="0" class="product-qtd-input">
-                  <button type="button" class="remove-product-button">Remover</button>
-                </td>
-              </tr>
-              <tr class="cart-product">
-                <td class="product-identification">
-                    <img src="img/R (1).jpg" alt="Livro 3" class="product-image" width="100">
-                <strong class="product-title">Coraline</strong>
-                </td>
-                <td>
-                  <span class="cart-product-price">R$39,99</span>
-                </td>
-                <td>
-                  <input type="number" value="0" min="0" class="product-qtd-input">
-                  <button type="button" class="remove-product-button">Remover</button>
-                </td>
-              </tr>
-              <tr class="cart-product">
-                <td class="product-identification">
-                    <img src="img/18102117480052.jpg" alt="Livro 4" class="product-image" width="100">
-                    <strong class="product-title">As Crônicas das Sombras</strong>
-                </td>
-                <td>
-                  <span class="cart-product-price">R$89,99</span>
-                </td>
-                <td>
-                  <input type="number" value="0" min="0" class="product-qtd-input">
-                  <button type="button" class="remove-product-button">Remover</button>
-                </td>
-              </tr>
-              <tr class="cart-product">
-                <td class="product-identification">
-                    <img src="img/cde7c9d7abc17d2bf88ef6aaab4a181d.jpg" alt="Livro 5" class="product-image" width="100">
-                    <strong class="product-title">Sword of Fire</strong>
-                </td>
-                <td>
-                  <span class="cart-product-price">R$29,99</span>
-                </td>
-                <td>
-                  <input type="number" value="0" min="0" class="product-qtd-input">
-                  <button type="button" class="remove-product-button">Remover</button>
-                </td>
-              </tr>
-              <tr class="cart-product">
-                <td class="product-identification">
-                    <img src="img/mockup-3d1.png" alt="Livro 6" class="product-image" width="100">
-                    <strong class="product-title">Serafina e a Capa Preta</strong>
-                </td>
-                <td>
-                  <span class="cart-product-price">R$49,99</span>
-                </td>
-                <td>
-                  <input type="number" value="0" min="0" class="product-qtd-input">
-                  <button type="button" class="remove-product-button">Remover</button>
-                </td>
-              </tr>
+              
             </tbody>
   
             <tfoot>
@@ -184,9 +109,56 @@
               </tr>
             </tfoot>
           </table>
-          <button id="button" onclick="adicionarCompra()">Comprar</button></a>
       </section>
     </main>
+    <h1 class="alguma"> Cadastro</h1>
+    <section class="container">
+      <form method="post"  action="http://jkorpela.fi/cgi-bin/echo.cgi">
+          <fieldset>
+              <legend>Compra</legend>
+              <div class="input-container">
+                <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required maxlength="50">
+                <br>
+              </div>
+
+              <div class="input-container">
+                <label id="cpf">CPF</label>
+                    <input type="text" name="cpf" placeholder="Seu CPF" required pattern="\d{3}.\d{3}.\d{3}-\d{2}">
+                </div>
+
+              <div class="input-container">
+                <label for="email">E-mail:</label>
+                    <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required autocomplete="email">
+                <br>
+              </div>
+
+              <div class="input-container">
+                <label for="telefone">Telefone:</label>
+                    <input placeholder="(99) 9999-9999" type="tel" id="telefone" name="telefone" required>
+                <br>
+              </div>
+
+              <div class="input-container">
+                <label for="cep">CEP (formato: 12345-678):</label>
+                    <input type="text" id="cep" name="cep" pattern="[0-9]{5}-[0-9]{3}" required>
+                <br>
+              </div>
+              <br>
+              <div class="input-container">
+                <label for="texto"></label>
+                  <textarea name="corpo" onmousemove="" cols="25" rows="3"></textarea>
+              </div>
+              <div class="actions">
+                <button type="reset">Limpar</button>
+                <button type="submit" class="button" onclick="alds()">Comprar</button>
+                  
+              </div>
+              <br>
+          </fieldset>
+      </form>
+  </section>
+  <br>
       <script>// Carrinho de compras
         var carrinho = [];
         
@@ -226,6 +198,7 @@
         
           // Atualizar o valor total do carrinho após a compra
           updateTotal();
+
         }
         
         // Função para limpar o carrinho
@@ -239,7 +212,30 @@
         // Inicializar o carrinho ao carregar a página
         document.addEventListener('DOMContentLoaded', function () {
           updateTotal();
-        });</script>
+        });
+
+        function alds(){
+          alert("Compra feita com sucesso! ")
+         exibirValores(event) 
+        event.preventDefault();
+
+        var nome = document.getElementById('nome').value;
+        var cpf = document.getElementById('cpf').value;
+        var email = document.getElementById('email').value;
+        var telefone = document.getElementById('telefone').value;
+        var cep = document.getElementById('cep').value;
+        }
+            $(document).ready(function () {
+                $('#cpf').inputmask('999.999.999-99');
+                
+                $('#cep').inputmask('99999-999');
+                
+                $('#telefone').inputmask('(99) 9999-9999');
+            }
+            );
+
+          
+      </script>
     <footer>
         <p>&copy; 2023 Livraria Fantástica | Criado por Gabriel Coelho, Geovana Munzlinger e Amanda Vitória</p>
     </footer>

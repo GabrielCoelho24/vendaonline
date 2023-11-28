@@ -25,11 +25,6 @@ if (document.readyState == 'loading') {
       addToCartButtons[i].addEventListener("click", addProductToCart)
     }
   
-    // Botão comprar
-    const purchaseButton = document.getElementsByClassName("purchase-button")[0]
-    purchaseButton.addEventListener("click", makePurchase)
-  }
-  
   function removeProduct(event) {
     event.target.parentElement.parentElement.remove()
     updateTotal()
@@ -176,5 +171,4 @@ localStorage.setItem("total_inscritos", totalInscritos);
 // Para recuperar o número total de inscritos:
 var numeroTotalInscritos = localStorage.getItem("total_inscritos");
 
-console.log("Número total de inscritos: " + numeroTotalInscritos);
-
+console.log("Número total de inscritos: " + numeroTotalInscritos)

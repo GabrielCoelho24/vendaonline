@@ -365,13 +365,14 @@ input[type="number"] {
   margin-right: 10px;
 }
 
-#alguma{
+.alguma{
   text-align: center;
   font-size: 50px;
 }
 
-#button{
-  padding:15px;
-  float: right;
+.button{
+  padding:30px;
+  margin-left: 370px;
   text-align: center;
+  font-size: 50px;
 }
