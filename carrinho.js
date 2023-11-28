@@ -178,3 +178,52 @@ var numeroTotalInscritos = localStorage.getItem("total_inscritos");
 
 console.log("Número total de inscritos: " + numeroTotalInscritos);
 
+
+function adicionarCompra(totalAmount) {
+  // Obtemos o histórico do localStorage
+  var historico = JSON.parse(localStorage.getItem('historico')) || [];
+
+  // Adicionamos a nova compra ao histórico
+  historico.push(parseFloat(totalAmount));
+
+  // Atualizamos o localStorage com o novo histórico
+  localStorage.setItem('historico', JSON.stringify(historico));
+}
+
+// Atualizar o valor total do carrinho
+function updateTotal() {
+  const cartProducts = document.getElementsByClassName("cart-product");
+  var totalAmount = 0;
+
+  for (var i = 0; i < cartProducts.length; i++) {
+    const productPrice = cartProducts[i].getElementsByClassName("cart-product-price")[0].innerText.replace("R$", "").replace(",", ".");
+    const productQuantity = cartProducts[i].getElementsByClassName("product-qtd-input")[0].value;
+
+    totalAmount += productPrice * productQuantity;
+  }
+
+  totalAmount = totalAmount.toFixed(2);
+  totalAmount = totalAmount.replace(".", ",");
+  document.querySelector(".cart-total-container span").innerText = "R$" + totalAmount;
+
+  // Adicionar a compra ao histórico se totalAmount for maior que 1
+  if (parseFloat(totalAmount) > 1) {
+    adicionarCompra(totalAmount);
+  }
+}
+
+// Chamada da função para adicionar uma compra fictícia (substitua pelo valor real)
+// Substitua isso pelo valor real da compra
+adicionarCompra(totalAmount);
+
+// Chamada da função para exibir o histórico
+exibirHistorico();
+
+// Função para obter e exibir o histórico de compras
+function exibirHistorico() {
+  // Obtemos o histórico do localStorage
+  var historico = JSON.parse(localStorage.getItem('historico')) || [];
+
+  // Exibimos o histórico no console
+  console.log("Histórico de Compras:", historico);
+}
