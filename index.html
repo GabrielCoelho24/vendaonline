@@ -148,7 +148,7 @@
               
               <div class="actions">
                 <button type="reset">Limpar</button>
-                <button type="submit" class="button" onclick="alds()">Comprar</button>
+                <button type="submit" class="button" onclick="validarFormulario()">Comprar</button>
                   
               </div>
               <br>
@@ -215,7 +215,7 @@
 
         function alds(){
           alert("Compra feita com sucesso! ")
-         exibirValores(event) 
+
         event.preventDefault();
 
         var nome = document.getElementById('nome').value;
@@ -233,7 +233,48 @@
             }
             );
 
-          
+  function validarFormulario(event) {
+    
+
+    var nome = document.forms["inscricao"]["nome"].value;
+    var cpf = document.forms["inscricao"]["cpf"].value;
+    var email = document.forms["inscricao"]["email"].value;
+    var telefone = document.forms["inscricao"]["telefone"].value;
+    var cep = document.forms["inscricao"]["cep"].value;
+
+    // Validar se os campos obrigatórios estão preenchidos
+    if (nome === "" || cpf === "" || email === "" || telefone === ""|| cep === "") {
+        alert("Todos os campos obrigatórios devem ser preenchidos.");
+        return false;
+    }
+
+    // Validar o formato do CPF
+    var cpfPattern = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+    if (!cpf.match(cpfPattern)) {
+        alert("O CPF deve estar no formato XXX.XXX.XXX-XX.");
+        return false;
+    }
+
+    // Validar o formato do email
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!email.match(emailPattern)) {
+        alert("O email deve estar em um formato válido.");
+        
+    }
+
+    var telefonePattern = /[0-9]{2} [0-9]{4}-[0-9]{4} /;
+    if (!telefone.match(telefonePattern)){
+        alert("o Telefone deve estar no formato XX XXXX-XXXX")
+        return false;
+    }
+
+    var cepPattern = /[0-9]{5}-[0-9]{3}/;
+    if (!cep.match(cepPattern)){
+        alert("o Cep deve estar no formato XXXXX-XXX")
+        return false;
+    }
+  }
+
       </script>
     <footer>
         <p>&copy; 2023 Livraria Fantástica | Criado por Gabriel Coelho, Geovana Munzlinger e Amanda Vitória</p>
