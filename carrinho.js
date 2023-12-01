@@ -171,4 +171,4 @@ localStorage.setItem("total_inscritos", totalInscritos);
 // Para recuperar o número total de inscritos:
 var numeroTotalInscritos = localStorage.getItem("total_inscritos");
 
-console.log("Número total de inscritos: " + numeroTotalInscritos)
+console.log("Número total de inscritos: " + numeroTotalInscritos)}
