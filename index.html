@@ -146,8 +146,9 @@
               </div>
               <br>
               <div class="input-container">
-                <label for="texto"></label>
-                  <textarea name="corpo" onmousemove="" cols="25" rows="3"></textarea>
+                <textarea name="mensagemCompra" id="mensagemCompra" cols="50" rows="8" readonly></textarea>
+                <textarea name="lista" id="lista" cols="50" rows="8" readonly></textarea>
+                <button type="button" onclick="validarFormulario()">Cadastrar</button>
               </div>
               <div class="actions">
                 <button type="reset">Limpar</button>
@@ -159,7 +160,9 @@
       </form>
   </section>
   <br>
-      <script>// Carrinho de compras
+      <script>
+    
+      // Carrinho de compras
         var carrinho = [];
         
         // Atualizar o valor total do carrinho
